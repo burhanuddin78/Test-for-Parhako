@@ -3,7 +3,7 @@ https://epic-albattani-d7b177.netlify.app/
 
 # Run Locally
 * git clone git@github.com:burhanuddin78/Test-for-Parhako.git
-* cd Todo-mern-App
+* cd Test-for-Parhako
 * npm install
 
 # Packages
