@@ -1,25 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { useState } from 'react';
+import SomePics from './SomePics';
+import Carts from './Carts';
+
+import { GlobalProvider } from './context/GlobalState';
 
 function App() {
+  const [value, setValue] = useState(0);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <GlobalProvider>
+      <BrowserRouter>
+        <Header value={value} setValue={setValue} />
+        <Switch>
+          <Route exact path='/' component={SomePics} />
+          <Route exact path='/cart' component={Carts} />
+        </Switch>
+      </BrowserRouter>
+    </GlobalProvider>
   );
 }
 
